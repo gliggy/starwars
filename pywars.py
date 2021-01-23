@@ -6,6 +6,14 @@ import fileinput
 
 pygame.init()
 
+class background(pygame.sprite.Sprite):
+    def __init__(self, image_file, location):
+        pygame.sprite.Sprite.__init__(self)  #call Sprite initializer
+        self.image = pygame.image.load(image_file)
+        self.rect = self.image.get_rect()
+        self.rect.left, self.rect.top = location
+
+
 # should try finding a good star wars font, but this will do...
 font = pygame.font.SysFont('Nimbus Sans Bold', 48, True, False)
 
@@ -25,12 +33,13 @@ except IndexError:
 fps=30
 fpsclock=pygame.time.Clock()
 
-
 surface=pygame.display.set_mode((400,400))
+back_ground = background('stars.jpeg', [0,0])
+
 
 temp_surf_len = 400
 temp_surf_width = 400
-temp_surf = pygame.Surface((temp_surf_width,temp_surf_len))
+temp_surf = pygame.Surface((temp_surf_width,temp_surf_len), pygame.SRCALPHA)
 
 pygame.display.set_caption("Star Wars")
 
@@ -41,7 +50,8 @@ p2 = temp_surf_len/2
 step=5
 while True:
     surface.fill(Black)
-    temp_surf.fill((0,0,0,255))
+    surface.blit(back_ground.image, back_ground.rect)
+    # temp_surf.fill((0,0,0,255))
     y = 0
     for txt in txts:
         texty = font.render(txt, 1, (255,255,0))
