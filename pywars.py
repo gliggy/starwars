@@ -56,6 +56,7 @@ Black=(0,0,0)
 p1 = 900/2
 p2 = 600/2
 step=5
+flip = False
 while True:
     surface.fill(Black)
     surface.blit(back_ground.image, back_ground.rect)
@@ -68,8 +69,9 @@ while True:
         y += 40
         if y > temp_surf_len:
             temp_surf_len = y
-            temp_surf = pygame.Surface((temp_surf_width,temp_surf_len))
-
+            temp_surf = pygame.Surface((temp_surf_width,temp_surf_len), pygame.SRCALPHA)
+    if flip:
+        temp_surf = pygame.transform.flip(temp_surf, False, True)
     surface.blit(temp_surf, (p1,p2))
 
     #pygame.draw.rect(sur_obj, (255,0,0), (p1, p2, 70, 65))
@@ -86,5 +88,7 @@ while True:
         p1 += step
     if key_input[pygame.K_DOWN]:
         p2 += step
+    if key_input[pygame.K_SPACE]:
+        flip = not flip
     pygame.display.update()
     fpsclock.tick(fps)
