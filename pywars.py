@@ -14,12 +14,18 @@ try:
     # take txts from first arg
     txts = list(sys.argv[1])
     txts[:] = [''.join(txts[:])]
-    txts = (txts[0].split('\\n'))
+    index = 0
+    for x in txts:
+        txts[index] = x.split('\\n')
+        index += 1
     print(txts)
 except IndexError:
     # take txts from stdin
     txts = list(line.rstrip() for line in fileinput.input())
-    txts = (txts[0].split('\\n'))
+    index = 0
+    for x in txts:
+        txts[index] = x.split('\\n')
+        index += 1
     print(txts)
     
 fps=30
@@ -44,6 +50,7 @@ while True:
     temp_surf.fill((0,0,0,255))
     y = 0
     for txt in txts:
+        print(txt)
         texty = font.render(txt, 1, (255,255,0))
         # score_write.fill(yellow)
         temp_surf.blit(texty, (0, y))
