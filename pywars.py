@@ -33,7 +33,7 @@ except IndexError:
 fps=30
 fpsclock=pygame.time.Clock()
 
-surface=pygame.display.set_mode((400,400))
+surface=pygame.display.set_mode((900,600))
 back_ground = background('stars.jpeg', [0,0])
 
 
@@ -45,8 +45,8 @@ pygame.display.set_caption("Star Wars")
 
 White=(255,255,255)
 Black=(0,0,0)
-p1 = temp_surf_width/2
-p2 = temp_surf_len/2
+p1 = 900/2
+p2 = 600/2
 step=5
 while True:
     surface.fill(Black)
