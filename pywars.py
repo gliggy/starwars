@@ -14,12 +14,12 @@ try:
     # take txts from first arg
     txts = list(sys.argv[1])
     txts[:] = [''.join(txts[:])]
-    txts = (txts[0].split('\\n'))
+    # txts = (txts[0].split('\\n'))
     print(txts)
 except IndexError:
     # take txts from stdin
     txts = list(line.rstrip() for line in fileinput.input())
-    txts = (txts[0].split('\\n'))
+    # txts = (txts[0].split('\\n'))
     print(txts)
     
 fps=30
