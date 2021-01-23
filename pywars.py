@@ -32,7 +32,7 @@ fps=30
 fpsclock=pygame.time.Clock()
 
 
-surface=pygame.display.set_mode((400,400))
+surface = pygame.display.set_mode((800,800))
 
 temp_surf_len = 400
 temp_surf_width = 400
