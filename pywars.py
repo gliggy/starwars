@@ -27,6 +27,14 @@ try:
 except IndexError:
     # take txts from stdin
     txts = list(line.rstrip() for line in fileinput.input())
+    #index = 0
+    #for x in txts:
+	#    txts[index] = txts[index].split("\n")
+	#    index += 1
+    #print(txts)
+    #total = []
+    #for i in txts:
+	#    total += i
     # txts = (txts[0].split('\\n'))
     print(txts)
     
